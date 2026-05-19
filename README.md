@@ -1,71 +1,135 @@
-# Stock Market Analyzer 
+#  Stock Market Analyzer
 
-## Présentation du projet
+> Application Python d'analyse de données financières en temps réel sur le marché boursier français.
 
-Le **Stock Market Analyzer ** est une application développée en Python permettant d’analyser des données financières en temps réel issues du marché boursier.
-
-L’application propose une interface graphique permettant de sélectionner plusieurs actions, de récupérer leurs données financières, de les comparer, de les visualiser sous forme de graphiques et de les exporter en fichier Excel.
-
-Ce projet simule un outil d’analyse financière proche des solutions utilisées dans les domaines de la finance, de la banque et de la data analyse.
-
----
-
-## Objectifs du projet
-
-Les objectifs principaux sont :
-
-- Automatiser la récupération de données financières
-- Structurer et transformer des données boursières
-- Analyser plusieurs actions simultanément
-- Visualiser les performances sous forme de graphiques
-- Générer des exports exploitables en Excel
-- Construire un pipeline de données de type ETL (Extract, Transform, Load)
+![Python](https://img.shields.io/badge/Python-3.10-blue?logo=python&logoColor=white)
+![Tkinter](https://img.shields.io/badge/GUI-Tkinter-orange)
+![Pandas](https://img.shields.io/badge/Data-Pandas-150458?logo=pandas)
+![License](https://img.shields.io/badge/License-MIT-green)
 
 ---
 
-## Fonctionnalités
+## Présentation
 
-### Sélection multi-actions
-L’utilisateur peut sélectionner plusieurs entreprises du marché français.
+**Stock Market Analyzer** est une application Python avec interface graphique permettant de :
+- Sélectionner plusieurs actions du marché français (CAC 40)
+- Récupérer leurs données financières en temps réel via Yahoo Finance
+- Comparer leurs performances dans un tableau et un graphique
+- Exporter les résultats au format Excel
 
-### Récupération des données financières
-Pour chaque action, l’application récupère :
+Le projet met en œuvre un pipeline **ETL** complet (Extract → Transform → Load) en Python.
 
-- Prix actuel
-- Prix d’ouverture
-- Plus haut de la journée
-- Plus bas de la journée
-- Volume échangé
-- Capitalisation boursière
+---
 
-### Analyse comparative
-Les données sont regroupées dans un tableau unique pour comparer les actions.
+##  Captures d'écran
 
-### Visualisation graphique
-Un histogramme permet de comparer les prix des différentes actions.
+### Interface au lancement
+![Interface principale](screenshots/01_interface.png)
+
+### Données récupérées
+![Données](screenshots/02_data.png)
+
+### Graphique comparatif
+![Graphique](screenshots/03_graph.png)
 
 ### Export Excel
-Les données peuvent être exportées au format Excel (.xlsx).
+![Export](screenshots/04_excel_success.png)
+![Fichier Excel](screenshots/05_excel_file.png)
 
 ---
 
-## Technologies utilisées
+##  Fonctionnalités
 
-- Python
-- Tkinter (interface graphique)
-- yfinance (données financières)
-- pandas (traitement de données)
-- matplotlib (visualisation)
-- openpyxl (export Excel)
-
----
-
-## Source des données
-
-Les données sont récupérées depuis :
-
-https://finance.yahoo.com
+- ✅ Sélection multiple parmi 10 actions françaises (LVMH, TotalEnergies, BNP Paribas, Airbus, Sanofi, L'Oréal, Schneider Electric, AXA, Danone, Safran)
+- ✅ Récupération en temps réel : prix, ouverture, plus haut/bas, volume, capitalisation
+- ✅ Tableau structuré dans l'interface
+- ✅ Graphique comparatif en barres (matplotlib)
+- ✅ Export Excel formaté (.xlsx)
 
 ---
 
-## Architecture du projet
+##  Stack technique
+
+| Composant | Technologie |
+|-----------|-------------|
+| Langage | Python 3.10 |
+| Interface | Tkinter |
+| API financière | yfinance |
+| Manipulation | pandas |
+| Visualisation | matplotlib |
+| Export | openpyxl |
+
+---
+
+##  Architecture
+
+```
+Stock-Market-Analyzer/
+│
+├── app.py              # Application principale (Tkinter)
+├── requirements.txt    # Dépendances Python
+├── README.md           # Documentation du projet
+├── data/               # Données exportées (.xlsx)
+├── graphs/             # Graphiques générés
+└── screenshots/        # Captures d'écran
+```
+
+---
+
+##  Installation
+
+### Prérequis
+- Python 3.10 ou supérieur
+- pip
+
+### Installation des dépendances
+```bash
+pip install -r requirements.txt
+```
+
+Ou directement :
+```bash
+pip install yfinance pandas matplotlib openpyxl
+```
+
+### Lancement
+```bash
+python app.py
+```
+
+---
+
+##  Pipeline ETL
+
+1. **Extract** — Données récupérées via l'API Yahoo Finance (`yfinance`)
+2. **Transform** — Nettoyage et structuration dans un `DataFrame` pandas
+3. **Load** — Affichage GUI + export Excel + graphique matplotlib
+
+---
+
+##  Améliorations futures
+
+- [ ] Analyse de l'évolution historique des prix
+- [ ] Graphiques avancés (candlestick, courbes)
+- [ ] Indicateurs techniques (RSI, MACD, moyennes mobiles)
+- [ ] Connexion à une base de données (SQLite / PostgreSQL)
+- [ ] Migration vers un dashboard web (Streamlit / Dash)
+- [ ] Modèle de prédiction des prix (ML)
+
+---
+
+## 📄 Rapport détaillé
+
+Un rapport PDF complet du projet est disponible : [`Rapport_Stock_Market_Analyzer.pdf`](./Rapport_Stock_Market_Analyzer.pdf)
+
+---
+
+##  Auteur
+
+**Souheil** — Projet réalisé dans une démarche d'apprentissage et de démonstration de compétences en Python, data engineering et visualisation de données.
+
+---
+
+##  Licence
+
+MIT
